@@ -45,6 +45,7 @@ namespace Silo
                     options.ServiceId = "OrleansBasics";
                 })
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(EvenOrOddGrain).Assembly).WithReferences())
+                .AddMemoryGrainStorage(Constants.OrleansMemoryProvider)
                 .ConfigureLogging(logging => logging.AddConsole());
 
             var host = builder.Build();
